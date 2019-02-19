@@ -1,13 +1,37 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <!-- Custom -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- lightbox -->
+    <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}" />
+
     <title>BT real state</title>
   </head>
-  <body style="background-color: rgb(236, 236, 236); text-align: center">
-    {% block title %} {% endblock title %}
+  <body style=" text-align: center">
+    <!-- Tob bar -->
+    {% include 'partials/_topbar.html' %}
+
+    <!-- Navbar -->
+    {% include 'partials/_navbar.html' %} {% block title %} {% endblock title %}
     <hr />
+
+    <!-- footer -->
+    {% include 'partials/_footer.html' %}
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %} "></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/lightbox.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %} "></script>
   </body>
 </html>
