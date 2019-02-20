@@ -20,4 +20,4 @@ class Realtor(models.Model):
 
     def __str__(self):
         """Unicode representation of Realtor."""
-        pass
+        return f'{self.name}'
