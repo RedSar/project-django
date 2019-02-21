@@ -19,12 +19,14 @@
     <title>BT real state</title>
   </head>
   <body style=" text-align: center">
-    <!-- Tob bar -->
+    <!-- Top bar -->
     {% include 'partials/_topbar.html' %}
 
     <!-- Navbar -->
-    {% include 'partials/_navbar.html' %} {% block title %} {% endblock title %}
-    <hr />
+    {% include 'partials/_navbar.html' %}
+
+    <!--   -->
+    {% block content %} {% endblock content %}
 
     <!-- footer -->
     {% include 'partials/_footer.html' %}
