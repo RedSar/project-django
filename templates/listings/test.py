@@ -1,0 +1,1 @@
+<QueryDict: {'csrfmiddlewaretoken': ['smcoabO0MKmpvC8Tlq8l58UmEkUjHjQ29nuawPEpnlzKRSkP88MIyjXzFuIUQdZW'], 'user_id': ['4'], 'realtor_email': ['mark@btrealstate.com'], 'listing_id': ['3'], 'name': ['maram'], 'email': ['maram@test.com'], 'phone': ['669-996'], 'message': ['I m interested']}>
