@@ -1,11 +1,24 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib import auth
 from django.contrib.auth.models import User
 
 
 def login(req):
     if req.method == 'POST':
-        messages.success(req, 'You are successfuly connected !')
+        username = req.POST['username']
+        password = req.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(req, user)
+            messages.success(req, 'You are Logged in successfully!')
+            return redirect('index')
+        else:
+            messages.error(req, 'The given credentials ar invalid !')
+
+            return redirect('login')
 
     return render(req, 'accounts/login.html')
 
@@ -46,8 +59,10 @@ def register(req):
 
 
 def logout(req):
-    context = {}
-    return redirect('index')
+    if req.method == 'POST':
+        auth.logout(req)
+        messages.success(req, 'You are now loggoed out!')
+        return redirect('index')
 
 
 def dashboard(req):
