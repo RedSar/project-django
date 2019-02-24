@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib import auth
 from django.contrib.auth.models import User
+from contacts.models import Contact
 
 
 def login(req):
@@ -66,5 +67,12 @@ def logout(req):
 
 
 def dashboard(req):
-    context = {}
+
+    inquiries = Contact.objects.order_by(
+        '-contact_date').filter(user_id=req.user.id)
+    if not inquiries:
+        messages.warning(req, 'No inquiery made yet !')
+    context = {
+        'inquiries': inquiries
+    }
     return render(req, 'accounts/dashboard.html', context)

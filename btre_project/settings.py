@@ -136,3 +136,12 @@ MESSAGE_TAGS = {
     messages.INFO: 'info',
     50: 'critical'
 }
+
+
+# Email config:
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'redouane.devpurpose@gmail.com'
+EMAIL_HOST_PASSWORD = '2014maram1991sara1984redouane'
+EMAIL_USE_TLS = True

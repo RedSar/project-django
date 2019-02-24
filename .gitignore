@@ -12,6 +12,7 @@ db.sqlite3
 /media
 /static
 mysql.html
+/.vscode
 
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/

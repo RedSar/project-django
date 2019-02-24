@@ -1,8 +1,9 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
 
 <!--  -->
 {% block title %} | User Dashboard {% endblock title %}
 <!--  -->
+{% block content %}
 <section id="showcase-inner" class="py-5 text-white">
   <div class="container">
     <div class="row text-center">
@@ -32,40 +33,35 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2>Welcome John</h2>
+        <h2>Welcome {{ user.first_name }}</h2>
         <p>Here are the property listings that you have inquired about</p>
+
+        {% if inquiries %}
         <table class="table">
           <thead>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Property</th>
-              <th></th>
+              <th>&nbsp;</th>
             </tr>
           </thead>
           <tbody>
+            {% for inquiry in inquiries %}
             <tr>
-              <td>22</td>
-              <td>45 Drivewood Circle</td>
+              <td>{{ inquiry.listing_id }}</td>
+              <td>{{ inquiry.listing }}</td>
               <td>
-                <a class="btn btn-light" href="#">View Listing</a>
+                <a
+                  class="btn btn-light"
+                  href="{% url 'listing' inquiry.listing_id  %}"
+                  >View Listing</a
+                >
               </td>
             </tr>
-            <tr>
-              <td>43</td>
-              <td>22 Westbrook rd</td>
-              <td>
-                <a class="btn btn-light" href="#">View Listing</a>
-              </td>
-            </tr>
-            <tr>
-              <td>31</td>
-              <td>12 Samson Ave</td>
-              <td>
-                <a class="btn btn-light" href="#">View Listing</a>
-              </td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
+        {% endif %} {% include '../partials/_messages.html' %}
       </div>
     </div>
   </div>
